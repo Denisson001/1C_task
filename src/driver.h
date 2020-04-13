@@ -2,11 +2,23 @@
 
 #include <iostream>
 
+enum RequestType {
+  Empty,
+  AddText,
+  AskWord,
+  AppendWord
+};
+
+struct Request {
+  RequestType type;
+  std::string body;
+};
+
 class Driver {
 public:
-  void Driver(std::istream &input_stream, std::ostream &output_stream);
+  void Run(std::istream &input_stream, std::ostream &output_stream);
 
 private:
-  std::istream &input_stream_;
-  std::ostream &output_stream_;
+  void PrintWord(std::ostream &output_stream, const std::string& word);
+  Request ReadRequest(std::istream &input_stream);
 };

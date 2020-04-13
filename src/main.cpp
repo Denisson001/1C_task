@@ -1,5 +1,6 @@
 #include "driver.h"
 
 int main() {
-  Driver driver(std::cin, std::cout);
+  Driver driver;
+  driver.Run(std::cin, std::cout);
 }
